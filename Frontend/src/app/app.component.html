@@ -1,0 +1,17 @@
+<h1>The {{title}}!!</h1>
+<div *ngIf="pizzas.length">
+  <ul>
+    <li *ngFor="let pizza of pizzas">
+      <h3>{{ pizza.name }}</h3>
+      <p>Toppings: {{ pizza.toppings.join(', ') }}</p>
+      <p>Quantity: {{ pizza.quantity }}</p>
+      <button (click)="updatePizzaQuantity(pizza.name, pizza.quantity + 1)">Increase Quantity</button>
+      <button (click)="deletePizza(pizza.name)">Delete</button>
+    </li>
+  </ul>
+</div>
+<div *ngIf="!pizzas.length">
+  <p>No pizzas available</p>
+</div>
+
+<button (click)="addPizza()">Add Pizza</button>
